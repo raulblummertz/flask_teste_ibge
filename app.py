@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import requests
 import pandas as pd
@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
 db = SQLAlchemy(app)
 
-paises = ['BR', 'AR', 'UY','ES', 'DE', 'IT', 'US', 'MX', 'CA', 'CN', 'JP', 'NZ', 'AU', 'DZ', 'ZA', 'EG']
+paises = ['BR','AR','UY','ES','DE','IT','US','MX','CA','CN','JP','NZ','AU','DZ','ZA','EG']
 indicadores = ['77818','77819','77820']
 
 def montaUrl(pais, indicador):
@@ -37,9 +37,6 @@ class Turismo(Saude):
     def json(self):
         return {'id': self.id, 'pais': self.pais, 'ano': self.ano, 'indicador': self.indicador}
 
-@app.route('/test', methods=['GET'])
-def test():
-    return make_response(jsonify({'message': 'test'}), 200)
 
 @app.route('/paises/', methods=['GET'])
 def get_paises():
