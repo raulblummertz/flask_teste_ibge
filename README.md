@@ -28,10 +28,14 @@ A estrutura de pastas e arquivos principais do projeto é a seguinte:
 ```
 ├── flask-teste-IBGE/
 │   ├── pycache/
+│   ├── scripts/
+│   │   ├── database.py     # Arquivo contendo toda a lógica de banco de dados
+│   │   ├── extract.py      # Arquivo contendo toda a lógica de extração de dados
+│   │   ├── transform.py    # Arquivo contendo toda a lógica de transformação de dados
 │   ├── app.py              # Arquivo contendo toda a lógica da aplicação
 │   ├── requirements.txt    # Lista de dependências do projeto
-│   ├── Dockerfile          # Funções para gerar embeddings
-│   ├── docker-compose.yml  # Arquivo principal da API com FastAPI
+│   ├── Dockerfile          # Arquivo contendo as instruções para buildar a imagem da aplicação
+│   ├── docker-compose.yml  # Arquivo contendo as instruções para subir o container da aplicação
 ```
 ## Instalação e Configuração
 
